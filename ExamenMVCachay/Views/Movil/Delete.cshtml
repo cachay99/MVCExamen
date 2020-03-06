@@ -1,0 +1,48 @@
+﻿@model ExamenMVCachay.Models.MovilModelo
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>MovilModelo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Marca.Nombre_marca)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Marca.Nombre_marca)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre_movil)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre_movil)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gama)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gama)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm("Delete", "Movil", FormMethod.Post)) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "ListadoNormal")
+        </div>
+    }
+</div>

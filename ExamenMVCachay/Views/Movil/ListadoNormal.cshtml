@@ -1,0 +1,60 @@
+﻿@model IEnumerable<ExamenMVCachay.Models.MovilModelo>
+
+@{
+    ViewBag.Title = "ListadoNormal";
+}
+
+<h2>ListadoNormal</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Marca.Nombre_marca)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre_movil)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gama)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AplicacionesSeleccionadas)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Marca.Nombre_marca)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Nombre_movil)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Gama)
+    </td>
+    <td>
+        <table>
+            @foreach (var aplicacion in item.movil_Aplicaciones)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => aplicacion.Aplicacion.Nombre_Aplicacion)
+                    </td>
+                </tr>
+            }
+        </table>
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+        @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+    </td>
+</tr>
+}
+
+</table>
